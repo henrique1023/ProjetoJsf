@@ -14,9 +14,49 @@
         <h:outputLabel value="#{estudanteRegistraBean.estudante.nome}"/><br/>
         <h:outputLabel value="#{estudanteRegistraBean.estudante.sobreNome}"/><br/>
         <h:outputLabel value="#{estudanteRegistraBean.estudante.turno == Turno.MATUTINO}"/><br/>
-
         <!-- Palavras reservadas: eq, or, and, not, ne 'not equal', lt, gt, ge, le, true, false, null
-            instaceoff, emply, not emply, div-->
+                  instaceoff, emply, not emply, div-->
+        <h:outputText value="trabalhando com Arrays"/><br/>
+        <h:outputLabel value="#{estudanteRegistraBean.nomes[0]}"/>
+        <h:outputLabel value="#{estudanteRegistraBean.nomes[1]}"/>
+        <h:outputLabel value="#{estudanteRegistraBean.nomes[2]}"/>
+        <h:outputLabel value="#{estudanteRegistraBean.nomes[3]}"/><br/>
+
+        <h:outputText value="Utilizando For Each Array"/><br/>
+        <ui:repeat value="#{estudanteRegistraBean.nomes}" var="nome">
+            <h:outputLabel value="#{nome}"/><br/>
+        </ui:repeat>
+
+        <h:outputText value="Utilizando For Each Lista"/><br/>
+        <ui:repeat value="#{estudanteRegistraBean.lista}" var="lista">
+            <h:outputLabel value="#{lista}"/><br/>
+        </ui:repeat>
+
+        <h:outputText value="Executando um metodo"/><br/>
+        <h:outputLabel value="#{estudanteRegistraBean.executar()}"/><br/>
+        <h:outputLabel value="#{estudanteRegistraBean.retorna()}"/><br/>
+
+        <h:form>
+            <h:commandButton value="Ir proxima pagina" action="#{estudanteRegistraBean.proximaPagina()}"/>
+        </h:form><br/>
+
+        <br/><h:outputText value="Executando CSS com EL"/><br/>
+        <ui:repeat value="#{estudanteRegistraBean.lista}" var="lista">
+            <h:outputLabel value="#{lista}" style="color: red"/><br/>
+        </ui:repeat>
+
+        <br/><h:outputText value="Executando JAVASCRIPT com EL"/><br/>
+        <h:commandButton value="Magica" onclick="fazMagica('#{estudanteRegistraBean.retorna()}')"/><br/>
+        <h:commandButton value="Outro botão" onclick="fazOutra('Outra')"/><br/>
+
     </h:body>
+    <script type="text/javascript">
+        function fazMagica(magica){
+            alert(magica)
+        }
+        function fazOutra(outra){
+            alert(outra)
+        }
+    </script>
 </f:view>
 </html>
