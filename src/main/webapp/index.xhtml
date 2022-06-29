@@ -4,11 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <f:view>
-    <h:outputLabel value="Hello, world"/><br/>
-    <h:outputLabel value="#{estudanteRegistraBean.nome}"/><br/>
-    <h:outputLabel value="#{estudanteRegistraBean.sobreNome}"/><br/>
+    <h:body>
+        <p:importEnum type="br.com.projetojsf.model.enums.Turno" var="Turno"
+                      allSuffix="ALL_ENUM_VALUES"/>
+        <h:outputLabel value="Hello, world"/><br/>
+        <h:outputLabel value="#{estudanteRegistraBean.estudante.nome}"/><br/>
+        <h:outputLabel value="#{estudanteRegistraBean.estudante.sobreNome}"/><br/>
+        <h:outputLabel value="#{estudanteRegistraBean.estudante.turno == Turno.MATUTINO}"/><br/>
 
+        <!-- Palavras reservadas: eq, or, and, not, ne 'not equal', lt, gt, ge, le, true, false, null
+            instaceoff, emply, not emply, div-->
+    </h:body>
 </f:view>
 </html>
