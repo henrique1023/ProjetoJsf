@@ -6,6 +6,9 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
 <f:view>
     <h:body>
         <p:importEnum type="br.com.projetojsf.model.enums.Turno" var="Turno"
@@ -49,12 +52,43 @@
         <h:commandButton value="Magica" onclick="fazMagica('#{estudanteRegistraBean.retorna()}')"/><br/>
         <h:commandButton value="Outro botão" onclick="fazOutra('Outra')"/><br/>
 
+        <h2>exibindo dados na tela utilizando AJAX</h2>
+        <br/>
+        <h:form id="form">
+            <h:commandButton value="Mostrar NOtas">
+                <f:ajax render="notasGrid" listener="#{estudanteRegistraBean.exibirNota()}"/>
+            </h:commandButton>
+            <h:panelGrid id="notasGrid">
+                <h:outputLabel value="#{estudanteRegistraBean.estudante.nota1}"
+                               rendered="#{estudanteRegistraBean.mostrarNota}"/>
+                <h:outputLabel value="#{estudanteRegistraBean.estudante.nota2}"
+                               rendered="#{estudanteRegistraBean.mostrarNota}"/>
+                <h:outputLabel value="#{estudanteRegistraBean.estudante.nota3}"
+                               rendered="#{estudanteRegistraBean.mostrarNota}"/>
+            </h:panelGrid>
+
+            <br/> <h:outputText value="Como mostrar um link montado em HTML"/>
+            <h:commandButton value="Mostrar Link">
+                <f:ajax render="pnLink" listener="#{estudanteRegistraBean.exibirLink()}"/>
+            </h:commandButton>
+            <h:panelGroup id="pnLink">
+                <ui:fragment id="fragmentLink" rendered="#{estudanteRegistraBean.mostrarLink}">
+                    <a href="index2.xhtml">Segundo link</a>
+                </ui:fragment>
+            </h:panelGroup>
+        </h:form>
+
     </h:body>
     <script type="text/javascript">
-        function fazMagica(magica){
+        function fazMagica(magica) {
             alert(magica)
         }
-        function fazOutra(outra){
+
+        function mostrar(){
+            return true
+        }
+
+        function fazOutra(outra) {
             alert(outra)
         }
     </script>
