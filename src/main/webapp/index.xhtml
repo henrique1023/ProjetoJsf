@@ -5,11 +5,25 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
+    <script type="text/javascript">
+        function fazMagica(magica) {
+            alert(magica)
+        }
 
+        function mostrar() {
+            return true
+        }
+
+        function fazOutra(outra) {
+            alert(outra)
+        }
+    </script>
 </h:head>
 <f:view>
+    <c:set var="numerosList" value="#{[1,2,3,4,56,7,8,9,10]}"/>
     <h:body>
         <p:importEnum type="br.com.projetojsf.model.enums.Turno" var="Turno"
                       allSuffix="ALL_ENUM_VALUES"/>
@@ -77,20 +91,24 @@
                 </ui:fragment>
             </h:panelGroup>
         </h:form>
+        <br/>
+        <h:outputLabel value="Funções Lambda em EL"/><br/>
+        #{cubo = (x -> x*x*x); cubo(5)}
+
+        <br/>
+        <h:outputLabel value="Streams em EL"/><br/>
+        <ui:repeat value="#{['PRimeiro items', ' da lista']} " var="list">
+            #{list}
+        </ui:repeat>
+        <br/>
+        <h:outputLabel value="Stream"/><br/>
+
+        <ui:repeat value="#{numerosList.stream().filter(v-> v>5).toArray()}" var="stream">
+            #{stream}
+        </ui:repeat>
+
 
     </h:body>
-    <script type="text/javascript">
-        function fazMagica(magica) {
-            alert(magica)
-        }
 
-        function mostrar(){
-            return true
-        }
-
-        function fazOutra(outra) {
-            alert(outra)
-        }
-    </script>
 </f:view>
 </html>
