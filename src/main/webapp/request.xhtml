@@ -10,6 +10,7 @@
 </h:head>
 <h:body>
    <h:form>
+      <h:outputText value="RequestScoped"/><br/>
       <h:outputText value="#{testeRequestBean.personagemSelecionado}"/><br/>
       <h:commandButton actionListener="#{testeRequestBean.escolherPersonagem()}" value="Escolher personagem"/><br/>
       <h:commandButton actionListener="#{testeRequestBean.escolherPersonagem()}" value="SIstema com Forward" action="index2"/>
