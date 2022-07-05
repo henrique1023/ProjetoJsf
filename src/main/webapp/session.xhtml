@@ -9,14 +9,19 @@
     <h:body>
         <h:form>
             <h:outputText value="SessionScoped"/><br/>
+
+            <h:outputText value="#{testeApplicationBean.categoriaList}"/><br/>
             <h:outputText value="#{testeSessionBean.personagemSelecionadoSession}"/><br/>
+
             <h:commandButton actionListener="#{testeSessionBean.escolherPersonagem()}"
-                             value="Escolher personagem"/><br/>
+                             value="Escolher personagem"/><br/>     
             <h:commandButton actionListener="#{testeSessionBean.escolherPersonagem()}" value="SIstema com Forward"
                              action="index2"/>
             <h:commandButton actionListener="#{testeSessionBean.escolherPersonagem()}" value="SIstema com Redirect"
                              action="index2?faces-redirect=true"/>
-            <h:commandButton action="#{testeSessionBean.logout()}" value="Logout"/>
+            <h:commandButton action="#{testeSessionBean.logout()}" value="Logout"/><br/>
+
+            <h:commandButton value="View" action="view"/>
         </h:form>
     </h:body>
 </f:view>
