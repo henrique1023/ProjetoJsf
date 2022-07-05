@@ -11,10 +11,12 @@ public class TesteFlowBean implements Serializable {
     private String sobrenome;
     private String endereco;
 
-    public String salvar(){
+    public void salvar(){
         System.out.println("Flow finalizado e salvando no banco!!");
         System.out.println(nome + " " + sobrenome + " "+ endereco);
-        return "exitToInicio";
+
+//        esse retorno serve para dizer qual a pagina que tem que ir depois que finalizar
+//        return "exitToInicio";
     }
 
     public String getNome() {
