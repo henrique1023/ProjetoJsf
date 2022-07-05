@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <br/><h:outputText value="Lista de elementos mantidas no escopo! "/><br/>
-    <ui:repeat value="#{testeSessionBean.personagemSelecionadoSession}" var="lista">
+    <ui:repeat value="#{testeConversationBean.personagemSelecionadoSession}" var="lista">
         <h:outputLabel value="#{lista}" style="color: red"/><br/>
     </ui:repeat>
 </f:view>
