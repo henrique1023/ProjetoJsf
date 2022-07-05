@@ -34,16 +34,17 @@ public class TesteSessionBean implements Serializable {
     }
 
     @PostConstruct
-    public void init(){
-        System.out.println("Objeto instanciado");
-        personagens  = asList("Duque", "Rainha", "Rei");
+    public void init() {
+        System.out.println("Objeto Session instanciado");
+        personagens = asList("Duque", "Rainha", "Rei");
     }
 
     //funções que serve para finalizar a Sessão no servidor
-    public String logout(){
+    public String logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "session?faces-redirect=true";
     }
+
     public void escolherPersonagem() {
         int index = ThreadLocalRandom.current().nextInt(3);
         personagemSelecionadoSession.add(personagens.get(index));
