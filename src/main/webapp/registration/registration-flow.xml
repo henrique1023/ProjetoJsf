@@ -10,6 +10,24 @@
 <!--            <vdl-document>/pasta do arquivo/arquivo.xhtml</vdl-document>-->
 <!--        </view>-->
 <!--        }-->
+
+<!--    Esses são os valores que vão ser enviados para o FlowInterno-->
+    <flow-call id="callPendencies">
+        <flow-reference>
+            <flow-id>pendencies</flow-id>
+        </flow-reference>
+        <outbound-parameter>
+            <name>userName</name>
+            <value>#{testeFlowBean.nome}</value>
+        </outbound-parameter>
+        <outbound-parameter>
+            <name>userSurname</name>
+            <value>#{testeFlowBean.sobrenome}</value>
+        </outbound-parameter>
+    </flow-call>
+
+
+<!--        Esse switch serve para validar os valores que vão ser enviados para a proxima tela-->
         <switch id="itempassado">
             <case>
                 <if>#{not empty testeFlowBean.nome and not empty testeFlowBean.sobrenome}</if>
@@ -17,6 +35,7 @@
             </case>
             <default-outcome>exitToInicio</default-outcome>
         </switch>
+        
 <!--        esse é o valor que tem que ser retornado no metodo para finalizar o flow-->
         <flow-return id="exitToInicio">
             <from-outcome>/inicioflow.xhtml</from-outcome>
