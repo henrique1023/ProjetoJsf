@@ -16,13 +16,14 @@
         <flow-reference>
             <flow-id>pendencies</flow-id>
         </flow-reference>
+<!--        Esse Outbound vai enviar os dados para o proximo flow-->
         <outbound-parameter>
             <name>userName</name>
-            <value>#{testeFlowBean.nome}</value>
+            <value>#{testeFlowBuilderBean.nome}</value>
         </outbound-parameter>
         <outbound-parameter>
             <name>userSurname</name>
-            <value>#{testeFlowBean.sobrenome}</value>
+            <value>#{testeFlowBuilderBean.sobrenome}</value>
         </outbound-parameter>
     </flow-call>
 
@@ -30,7 +31,7 @@
 <!--        Esse switch serve para validar os valores que vão ser enviados para a proxima tela-->
         <switch id="itempassado">
             <case>
-                <if>#{not empty testeFlowBean.nome and not empty testeFlowBean.sobrenome}</if>
+                <if>#{not empty testeFlowBuilderBean.nome and not empty testeFlowBuilderBean.sobrenome}</if>
                 <from-outcome>registration2</from-outcome>
             </case>
             <default-outcome>exitToInicio</default-outcome>
@@ -43,6 +44,6 @@
 
 <!--        Essa tag indica que toda vez que esse metodo rodar ele vai pegar a pagina que ele
             passar e vai carregar a pagina-->
-        <finalizer>#{testeFlowBean.salvar()}</finalizer>
+        <finalizer>#{testeFlowBuilderBean.salvar()}</finalizer>
     </flow-definition>
 </faces-config>

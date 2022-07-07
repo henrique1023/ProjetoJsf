@@ -8,16 +8,14 @@
 <h:head>
 </h:head>
 <h:body>
-    <h:messages/>
     <h:form>
-        <h2>Primeira pagina do FlowScoped</h2>
+        <h2>Segunda pagina do FlowScoped</h2>
         <h:panelGrid columns="2">
-            <h:outputLabel value="Nome" />
-            <h:inputText value="#{testeFlowBuilderBean.nome}" required="true"
-                         requiredMessage="Nome obrigatorio"/>
-            <h:outputLabel value="Sobrenome"/>
-            <h:inputText value="#{testeFlowBuilderBean.sobrenome}"/>
-            <h:commandButton value="Next" action="registration2?faces-redirect=true"/>
+            <h:outputLabel value="Endereco"/>
+            <h:inputText value="#{testeFlowBuilderBean.endereco}"/>
+            <h:commandButton value="Back" action="newregistration?faces-redirect=true"/>
+<!--            <h:commandButton value="Next" action="registration3?faces-redirect=true"/>-->
+            <h:commandButton value="Validar Pendencias" action="callnewpendencies"/>
         </h:panelGrid>
     </h:form>
 </h:body>

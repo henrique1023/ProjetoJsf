@@ -7,13 +7,15 @@
         <flow-return id="proceedToRegistration3">
             <from-outcome>/registration/registration3</from-outcome>
         </flow-return>
+
+<!--        Esse inbound recebe os dados e inserem no objeto-->
         <inbound-parameter>
             <name>userName</name>
-            <value>#{testeFlowNestedBean.userName}</value>
+            <value>#{testeFlowBuilderNestedBean.userName}</value>
         </inbound-parameter>
         <inbound-parameter>
             <name>userSurname</name>
-            <value>#{testeFlowNestedBean.userSurname}</value>
+            <value>#{testeFlowBuilderNestedBean.userSurname}</value>
         </inbound-parameter>
     </flow-definition>
 </faces-config>
