@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <welcome-file-list>
-        <welcome-file>/login.xhtml</welcome-file>
+        <welcome-file>comunicacao.xhtml</welcome-file>
     </welcome-file-list>
 
 <!--    Esse context faz com que os comentarios não sejam combilados-->
@@ -24,6 +24,12 @@
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/restricted/*</url-pattern>
     </filter-mapping>
+
+<!-- context param cria uma variavel global que pode ser capturada em todo sistema -->
+    <context-param>
+        <param-name>images.location</param-name>
+        <param-value>C:\var</param-value>
+    </context-param>
 
 <!--    TEmpo que a sessão vai ser mantida no sistema-->
     <session-config>

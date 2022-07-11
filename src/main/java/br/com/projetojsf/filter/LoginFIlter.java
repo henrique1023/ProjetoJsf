@@ -18,6 +18,7 @@ public class LoginFIlter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        //como estamos trabalhando com http precisa ser feita um cast do servletResquest e REsponse
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse res = (HttpServletResponse) servletResponse;
         String url = req.getRequestURL().toString();
