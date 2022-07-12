@@ -13,6 +13,9 @@
 <f:metadata>
    <f:viewParam name="nome" value="#{comunicacaoTeste3Bean.nome}"/>
    <f:viewParam name="sobrenome" value="#{comunicacaoTeste3Bean.sobrenome}"/>
+   <f:viewParam name="data" value="#{comunicacaoTeste3Bean.data}">
+      <f:convertDateTime pattern="dd-MM-yyyy"/>
+   </f:viewParam>
 <!--   Esse f:event com type type="preRenderView" faz com que antes da tela carregar
       seja executado o metodo que está no listener-->
 <!--   <f:event listener="#{comunicacaoTeste3Bean.init()}" type="preRenderView"></f:event>-->
@@ -23,14 +26,13 @@
 <!--      esse form com omnifaces faz com que mesmo com validação os parametros
          não sumam da URL-->
       <o:form includeRequestParams="true">
-         <p:messages >
-            <p:autoUpdate on="Descrição"/>
-         </p:messages>
+
          <h:panelGrid columns="1">
             <h:inputText value="#{comunicacaoTeste3Bean.nome}" required="true" requiredMessage="Nome Obrigatorio">
                <f:ajax event="blur"/>
             </h:inputText>
             <h:inputText value="#{comunicacaoTeste3Bean.sobrenome}"/>
+            <h:outputText value="#{comunicacaoTeste3Bean.data.toString()}"/>
             <h:commandButton value="Resultado" action="resultado?faces-redirect=true&amp;includeViewParams=true"/>
          </h:panelGrid>
       </o:form>

@@ -4,6 +4,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Date;
 
 @Named
 @ViewScoped
@@ -12,6 +13,7 @@ public class ComunicacaoTeste1Bean implements Serializable {
     private String nome;
     private String sobrenome;
 
+    private Date data = new Date();
 
     public void imprimirAtributos(){
         //capturando o atributo global que está no web.xml
@@ -42,4 +44,11 @@ public class ComunicacaoTeste1Bean implements Serializable {
         this.sobrenome = sobrenome;
     }
 
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
 }
