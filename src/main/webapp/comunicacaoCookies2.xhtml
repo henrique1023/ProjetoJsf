@@ -14,11 +14,18 @@
     <f:viewAction action="#{comunicacaoTesteCookies2Bean.init()}"/>
 </f:metadata>
    <h:body>
-      <p:messages showDetail="Chave necessaria"/>
-      <p:autoUpdate on="descrição"/>
+      <p:messages showDetail="" />
+      <p:autoUpdate on="descrição" />
       <o:form includeRequestParams="true">
          <h:panelGrid columns="1">
-            <h:outputText value="#{comunicacaoTesteCookies2Bean.value}"/>
+               <h:outputText value="#{comunicacaoTesteCookies2Bean.estudante.nome}"/>
+               <h:outputText value="#{comunicacaoTesteCookies2Bean.estudante.sobreNome}"/>
+            <h:form>
+               <h:inputText value="#{comunicacaoTesteCookies2Bean.estudante2.nome}"
+                            converter="javax.faces.Number" immediate="true"/>
+               <h:inputText value="#{comunicacaoTesteCookies2Bean.estudante2.sobreNome}"/>
+               <h:commandButton value="Voltar" action="comunicacaoCookies?faces-redirect=true"/>
+            </h:form>
          </h:panelGrid>
       </o:form>
    </h:body>

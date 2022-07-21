@@ -1,5 +1,7 @@
 package br.com.projetojsf.bean.comunicacao;
 
+import br.com.projetojsf.model.Estudante2;
+import br.com.projetojsf.util.ApplicationMapUtil;
 import org.omnifaces.util.Faces;
 
 import javax.faces.context.FacesContext;
@@ -12,28 +14,27 @@ import java.util.Map;
 @Named
 @ViewScoped
 public class ComunicacaoTesteCookies2Bean implements Serializable {
-    private String key;
-    private String value;
+    private Estudante2 estudante;
+    private Estudante2 estudante2 = new Estudante2();
+
     public void init(){
-        value = Faces.getRequestCookie("nome");
-        System.out.println(value);
+        System.out.println("Cookie2");
+        estudante = (Estudante2) ApplicationMapUtil.getValueFromApplicationMap("estudante");
+    }
+    public Estudante2 getEstudante() {
+        return estudante;
     }
 
-
-    public String getKey() {
-        return key;
+    public void setEstudante(Estudante2 estudante) {
+        this.estudante = estudante;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public Estudante2 getEstudante2() {
+        return estudante2;
     }
 
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
+    public void setEstudante2(Estudante2 estudante2) {
+        this.estudante2 = estudante2;
     }
 }
 
