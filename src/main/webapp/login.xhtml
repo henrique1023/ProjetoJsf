@@ -6,7 +6,10 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
+<h:head>
+
+</h:head>
+<f:view locale="pt">
     <h:outputLabel value="Login"/>
     <p:autoUpdate on="true"/>
     <p:messages showDetail="detalhe"/>
@@ -15,7 +18,11 @@
             <h:outputLabel value="Digite o nome"/>
             <h:inputText value="#{loginBean.nome}" required="true"/>
             <h:outputLabel value="Digite a senha"/>
-            <h:inputText value="#{loginBean.senha}" required="true"/>
+            <h:inputSecret value="#{loginBean.senha}" required="true"/>
+            <h:selectOneMenu value="#{loginBean.language}">
+                <f:selectItems value="#{loginBean.localeList}" var="locale"
+                               itemValue="#{locale.language}" itemLabel="#{locale.displayLanguage}"/>
+            </h:selectOneMenu>
             <h:commandButton value="logar" action="#{loginBean.logar()}"/>
         </h:panelGrid>
     </h:form>

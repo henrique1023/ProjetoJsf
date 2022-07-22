@@ -5,10 +5,14 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
+<f:view locale="#{loginBean.language}">
     <h:form>
-        <h:outputLabel value="Nome estudante#{loginBean.estudante.nome}"/><br/>
-        <h:commandButton value="Deslogar" action="#{loginBean.logout()}"/>
+        <h1>#{m.userLogged} #{loginBean.estudante.nome}</h1> <br/>
+        <h:outputFormat value="#{m.userLogged}">
+            <f:param value="#{loginBean.estudante.nome}"/>
+            <f:param value="#{loginBean.estudante.sobreNome }"/>
+        </h:outputFormat>
+        <h:commandButton value="#{m.userUnlogged}" action="#{loginBean.logout()}"/>
     </h:form>
 </f:view>
 </html>

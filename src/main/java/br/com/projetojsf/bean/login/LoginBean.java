@@ -7,6 +7,11 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+
+import static java.util.Arrays.asList;
 
 @Named
 @SessionScoped
@@ -14,6 +19,8 @@ public class LoginBean implements Serializable {
     private String nome;
     private String senha;
     private Estudante2 estudante;
+    private List<Locale> localeList = asList(new Locale("en"), new Locale("pt"));
+    private String language;
 
     public String logar(){
         //faz a verificação e busca no banco
@@ -32,6 +39,22 @@ public class LoginBean implements Serializable {
         estudante = null;
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "/login?faces-redirect=true";
+    }
+
+    public List<Locale> getLocaleList() {
+        return localeList;
+    }
+
+    public void setLocaleList(List<Locale> localeList) {
+        this.localeList = localeList;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public String getNome() {
