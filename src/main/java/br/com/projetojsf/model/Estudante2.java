@@ -16,6 +16,7 @@ public class Estudante2 {
     private double nota1;
     private double nota2;
     private double nota3 = 10;
+    private String email;
 
     public Estudante2() {
     }
@@ -33,6 +34,15 @@ public class Estudante2 {
         new Estudante2("isasa","asdasd", 14)));
         return e;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getNome() {
         return nome;
     }
