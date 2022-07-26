@@ -4,11 +4,13 @@ import br.com.projetojsf.model.enums.Turno;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static java.util.Arrays.asList;
 
 
 public class Estudante2 {
+    private Integer id;
     private String nome = "Joaquim";
     private String sobreNome = "Miguel";
 
@@ -27,12 +29,40 @@ public class Estudante2 {
         this.nota1 = nota1;
     }
 
+    public Estudante2(Integer id,String nome, String sobreNome, double nota1) {
+        this.id = id;
+        this.nome = nome;
+        this.sobreNome = sobreNome;
+        this.nota1 = nota1;
+    }
+
     public static List<Estudante2> estudante2List(){
         List<Estudante2> e = new ArrayList<>();
-        e.addAll(asList(new Estudante2("isasa","asdasd", 14),
-        new Estudante2("isasa","avdvdv", 15),
-        new Estudante2("isasa","asdasd", 14)));
+        e.addAll(asList(new Estudante2(1,"isasa","JUquearou", 14),
+        new Estudante2(2,"duque","malaquias", 15),
+        new Estudante2(3,"bispo","jubileu", 14)));
         return e;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Estudante2 that = (Estudante2) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getEmail() {
