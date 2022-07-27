@@ -17,6 +17,7 @@
       <h:outputText value="Selecione um estudante"/>
       <h:form>
          <h:selectOneMenu value="#{converterTesteBean.estudante}" converter="estudanteConverter">
+            <f:selectItem itemLabel="Selecione um estudante" itemValue="#{null}"/>
             <f:selectItems value="#{converterTesteBean.estudanteList}" var="locale"
                            itemValue="#{locale}" itemLabel="#{locale.sobreNome}"/>
          </h:selectOneMenu>
