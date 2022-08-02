@@ -20,6 +20,8 @@ public class Estudante2 {
     private double nota3 = 10;
     private String email;
 
+    private transient boolean editing;
+
     public Estudante2() {
     }
 
@@ -55,6 +57,14 @@ public class Estudante2 {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public boolean isEditing() {
+        return editing;
+    }
+
+    public void setEditing(boolean editing) {
+        this.editing = editing;
     }
 
     public Integer getId() {

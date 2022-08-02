@@ -17,12 +17,22 @@
       <h:form>
         <h:dataTable value="#{dataTableTesteBean.estudante2List}" var="estudante">
            <h:column>
-              <f:facet name="header">Nome</f:facet>
-              <h:outputText value="#{estudante.nome}"/>
+              <f:facet name="header">
+                 <h:commandLink actionListener="#{dataTableTesteBean.orderByName('asc')}">
+                    Nome Asc
+                 </h:commandLink>
+              </f:facet>
+              <h:outputText value="#{estudante.nome}" rendered="#{not estudante.editing}"/>
+              <h:inputText value="#{estudante.nome}" rendered="#{estudante.editing}"/>
            </h:column>
            <h:column>
-              <f:facet name="header">Sobrenome</f:facet>
-              <h:outputText value="#{estudante.sobreNome}"/>
+              <f:facet name="header">
+                 <h:commandLink actionListener="#{dataTableTesteBean.orderBySobrenome('asc')}">
+                    Sobrenome Asc
+                 </h:commandLink>
+              </f:facet>
+              <h:outputText value="#{estudante.sobreNome}" rendered="#{not estudante.editing}"/>
+              <h:inputText value="#{estudante.sobreNome}" rendered="#{estudante.editing}"/>
            </h:column>
            <h:column>
               <f:facet name="header">Email</f:facet>
@@ -32,6 +42,19 @@
            <h:column>
               <f:facet name="header">Turno</f:facet>
               <h:outputText value="#{estudante.turno}"/>
+           </h:column>
+
+           <h:column>
+              <f:facet name="header">Remover</f:facet>
+              <h:commandButton value="Remover" actionListener="#{dataTableTesteBean.remove(estudante)}"
+                               rendered="#{not estudante.editing}"/>
+           </h:column>
+           <h:column>
+              <f:facet name="header">Editar</f:facet>
+              <h:commandButton value="Editar" actionListener="#{dataTableTesteBean.edit(estudante)}"
+                               rendered="#{not estudante.editing}"/>
+              <h:commandButton value="Salvar" actionListener="#{dataTableTesteBean.save()}"
+                               rendered="#{estudante.editing}"/>
            </h:column>
         </h:dataTable>
       </h:form>
