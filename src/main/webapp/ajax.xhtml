@@ -10,17 +10,21 @@
 
 </h:head>
 <h:body>
-    <h:form>
+    <h:form id="form">
         <h:panelGrid columns="1">
-            <h:inputText value="#{ajaxTesteBean.nome}" id="Nome"/>
-            <h:inputText value="#{ajaxTesteBean.sobrenome}" id="Sobrenome"/>
+            <h:inputText value="#{ajaxTesteBean.nome}" id="nome"/>
+            <h:inputText value="#{ajaxTesteBean.sobrenome}" id="sobrenome"/>
             <h:commandButton value="Upper Case" actionListener="#{ajaxTesteBean.toUpperCase}">
-                <f:ajax execute="nome sobrenome" render="nomeOut sobrenomeOut"/>
+                <f:ajax execute="@form" render="@form form2:sobrenomeOut2"/>
             </h:commandButton>
             <h:outputText value="#{ajaxTesteBean.nome}" id="nomeOut"/>
             <h:outputText value="#{ajaxTesteBean.sobrenome}" id="sobrenomeOut"/>
 
         </h:panelGrid>
+    </h:form>
+    <h:form id="form2">
+        <h:outputText value="#{ajaxTesteBean.nome}" id="nomeOut2"/>
+        <h:outputText value="#{ajaxTesteBean.sobrenome}" id="sobrenomeOut2"/>
     </h:form>
 </h:body>
 </html>

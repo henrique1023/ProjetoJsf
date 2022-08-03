@@ -1,6 +1,6 @@
 package br.com.projetojsf.bean.ajax;
 
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
@@ -11,6 +11,7 @@ public class AjaxTesteBean implements Serializable {
     private String sobrenome;
 
     public void toUpperCase(){
+        System.out.println(nome + sobrenome);
         this.nome = this.nome.toUpperCase();
         this.sobrenome = this.sobrenome.toUpperCase();
     }
