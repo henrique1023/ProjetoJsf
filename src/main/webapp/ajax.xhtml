@@ -19,7 +19,9 @@
             </h:commandButton>
             <h:outputText value="#{ajaxTesteBean.nome}" id="nomeOut"/>
             <h:outputText value="#{ajaxTesteBean.sobrenome}" id="sobrenomeOut"/>
-
+            <h:inputText value="#{ajaxTesteBean.nome}">
+                <f:ajax event=""/>
+            </h:inputText>
         </h:panelGrid>
     </h:form>
     <h:form id="form2">
