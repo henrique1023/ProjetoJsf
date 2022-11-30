@@ -55,7 +55,10 @@
         <env-entry-type>java.lang.String</env-entry-type>
         <env-entry-value>aqui se coloca a chave criptografa em base64</env-entry-value>
     </env-entry>
-
     -->
-
+    <!-- Esse parâmetro controla quantas views logicas podem ser abertas em sequencia-->
+    <context-param>
+        <param-name>com.sun.faces.numberOfLogicalViews</param-name>
+        <param-value>2</param-value>
+    </context-param>
 </web-app>
